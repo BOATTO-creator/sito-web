@@ -45,7 +45,7 @@ const body = new URLSearchParams(formData as any).toString();
     "Content-Type": "application/x-www-form-urlencoded",
   },
     body,
-  }).then(() => console.log("Form successfully submitted"))
+  }).then(() => console.log("Form sent",body))
     .catch(error => alert(error));
 };
 
