@@ -1,5 +1,5 @@
 import type { StepOneType, StepTwoType } from "../../../types/types";
-import styles from "./preventivo.module.css";
+import styles from "../../../assets/css/modules/preventivo.module.css";
 
 export default function PreventivoStepThree({
   formDataStepOne,

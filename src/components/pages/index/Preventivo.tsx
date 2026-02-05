@@ -10,7 +10,7 @@ import PreventivoStepTwo from "./PreventivoStepTwo";
 import PreventivoStepThree from "./PreventivoStepThree";
 import PreventivoStato from "./PreventivoStato";
 
-import styles from "./preventivo.module.css";
+import styles from "../../../assets/css/modules/preventivo.module.css";
 
 export default function Preventivo() {
   const formRef = useRef<HTMLFormElement>(null);
@@ -94,7 +94,7 @@ export default function Preventivo() {
           />
         </div>
         <form
-          action='http://localhost:3000/nodeServer'
+          action=''
           encType='application/x-www-form-urlencoded'
           method='post'
           ref={formRef}

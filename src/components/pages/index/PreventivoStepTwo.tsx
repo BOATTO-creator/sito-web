@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 import type { StepTwoType } from "../../../types/types";
-import styles from "./preventivo.module.css";
+import styles from "../../../assets/css/modules/preventivo.module.css";
 
 export default function PreventivoStepTwo({
   formDataStepTwo,

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import styles from "./preventivo.module.css";
+import styles from "../../../assets/css/modules/preventivo.module.css";
 
 export default function PreventivoStato({ step }: { step: number }) {
   return (

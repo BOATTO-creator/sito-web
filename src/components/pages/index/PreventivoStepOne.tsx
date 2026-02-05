@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 import type { StepOneType } from "../../../types/types";
-import styles from "./preventivo.module.css";
+import styles from "../../../assets/css/modules/preventivo.module.css";
 import clsx from "clsx";
 
 export default function PreventivoStepOne({
