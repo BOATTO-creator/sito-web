@@ -94,7 +94,8 @@ export default function Preventivo() {
           />
         </div>
         <form
-          action=''
+          data-netlify="true"
+          name='form-preventivo'
           encType='application/x-www-form-urlencoded'
           method='post'
           ref={formRef}
