@@ -64,8 +64,8 @@ import Header from "../layouts/components/Header.astro";
     <textarea name='infoAggiuntive'></textarea>
     <input type='checkbox' name='datiPersonali' />
   </form>
+  <Preventivo client:idle />
 </Layout>
-<Preventivo client:idle />
 
 <script>
   import gsap from "gsap";

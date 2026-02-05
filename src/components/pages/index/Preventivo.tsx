@@ -29,8 +29,8 @@ export default function Preventivo() {
   }
 
   //invia il form con mail tramite netlify
-const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
+const handleSubmit = async () => {
+  // e.preventDefault();
   const form = formRef.current;
   if (!form) return; // TS is now happy
   const formData = new FormData(form);
