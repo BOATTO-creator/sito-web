@@ -1,7 +1,6 @@
 ---
 import Favicon from "./components/Favicon.astro";
 import MetadataSEO from "./components/MetadataSEO.astro";
-import Header from "./components/Header.astro";
 import Footer from "./components/Footer.astro";
 
 import type { MetadescriptionType } from "../types/types";
@@ -20,10 +19,9 @@ import "../assets/css/main.css";
   <head>
     <Favicon />
     <MetadataSEO metadescription={metadescription} />
-    <title>Pick a title</title>
+    <title>Boatto Autotrasporti Srl</title>
   </head>
   <body>
-    <Header />
     <slot />
     <Footer />
   </body>

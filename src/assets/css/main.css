@@ -1,11 +1,35 @@
 @import "tailwindcss";
 
-/* @font-face {
-  font-family: klavika-l;
-  src: url("/font/klavika-light.otf");
+@font-face {
+  font-family: alexandria-b;
+  src: url("/font/ALEXANDRIA-BOLD.TTF");
   font-style: normal;
   font-display: swap;
-} */
+}
+@font-face {
+  font-family: alexandria-el;
+  src: url("/font/ALEXANDRIA-EXTRALIGHT.TTF");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: alexandria-l;
+  src: url("/font/ALEXANDRIA-LIGHT.TTF");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: alexandria-r;
+  src: url("/font/ALEXANDRIA-REGULAR.TTF");
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: alexandria-m;
+  src: url("/font/ALEXANDRIA-MEDIUM.TTF");
+  font-style: normal;
+  font-display: swap;
+}
 
 @layer components {
   html {
@@ -13,13 +37,21 @@
     scroll-behavior: smooth;
   }
   body {
-    font-family: system-ui;
+    font-family: var(--font-alexandria-l);
+    color: var(--color-black-boatto);
     -webkit-text-size-adjust: 100%; /* 2. Prevent adjustments of font size after orientation changes in iOS. */
-    font-size: clamp(0.9rem, 2vw, 1.2rem);
+    font-size: clamp(0.9rem, 2vw, 1rem);
   }
   /* h1 and other to add default text size */
   h1 {
     font-size: clamp(2.5rem, 6vw, 3.75rem);
+  }
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+  }
+  h3 {
+    font-family: var(--font-alexandria-r);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
   }
   /* nomalization preferencies, don't touch */
   button {
@@ -36,9 +68,45 @@
   }
 }
 
+a {
+  transition-duration: var(--animation-duration);
+}
+a:hover {
+  color: var(--color-red-boatto);
+}
+
+input,
+textarea {
+  appearance: none;
+  outline: none;
+}
+
+input[readonly],
+textarea[readonly] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* margin mx-4 lg:mx-16*/
+
 @theme {
-  /* --color-green-600: #004818; */
-  /* --font-klavika-l: klavika-l, sans-serif; */
+  --color-black-boatto: #1e1e1e;
+  --color-red-boatto: #ed1d23;
+  --color-dark-red-boatto: #ac2a38;
+  --color-gray-boatto: #4b4c4d;
+  --color-light-gray-boatto: #d1d2d4;
+  --color-white: #fff;
+
+  --radius-boatto: 5px;
+
+  --font-alexandria-b: alexandria-b, sans-serif;
+  --font-alexandria-el: alexandria-el, sans-serif;
+  --font-alexandria-l: alexandria-l, sans-serif;
+  --font-alexandria-r: alexandria-r, sans-serif;
+  --font-alexandria-m: alexandria-m, sans-serif;
+
+  --animation-duration: 0.2s;
 }
 
 @utility content-auto {

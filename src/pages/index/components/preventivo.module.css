@@ -1,0 +1,196 @@
+.preventivo__form {
+  & input:not([type="button"]):not([type="submit"]):not([type="reset"]),
+  textarea {
+    border-bottom: 1px solid var(--color-black-boatto);
+    padding: 0.5rem 0.3rem;
+  }
+  & label {
+    font-family: var(--font-alexandria-r);
+    margin-top: 2rem;
+  }
+}
+
+.preventivo__formThird {
+  & input:not([type="button"]):not([type="submit"]):not([type="reset"]),
+  textarea {
+    border: none;
+    padding: 0.5rem 0rem;
+    line-height: 1;
+  }
+  & label {
+    font-family: var(--font-alexandria-r);
+    margin-top: 1rem;
+    line-height: 1;
+  }
+}
+
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* Preventivo Stato */
+.preventivo__stato {
+  color: var(--color-white);
+  font-family: var(--font-alexandria-r);
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(to bottom, #871114, var(--color-red-boatto));
+
+  & div {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+
+@media (width >= 40rem /* 640px sm */) {
+  .preventivo__stato {
+    & div {
+      flex-direction: column;
+    }
+  }
+}
+
+@media (width >= 64rem /* 1024px lg */) {
+  .preventivo__stato {
+    padding: 4rem 10rem 4rem 4rem;
+    width: 50%;
+    & div {
+      flex-direction: row;
+    }
+  }
+}
+
+.preventivo__stato__numero {
+  font-size: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: inline-block;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preventivo__stato--attivo {
+  background-color: var(--color-red-boatto);
+  border: none;
+}
+
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* Preventivo Bottone */
+.preventivo__bottone {
+  background-color: var(--color-dark-red-boatto);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: var(--color-white);
+  cursor: pointer;
+  transition-duration: var(--animation-duration);
+}
+.preventivo__bottone:hover {
+  background-color: var(--color-red-boatto);
+}
+
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* Form */
+
+.preventivo__doubleLine {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-between;
+}
+.preventivo__doubleLineInside {
+  display: flex;
+  flex-direction: column;
+}
+@media (width <= 64rem /* 1024px lg */) {
+  .preventivo__doubleLine {
+    flex-direction: column;
+    gap: 0rem;
+  }
+}
+
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* ----------------------------------------------------------------- */
+/* Step three */
+
+/* Checkbox */
+.preventivoStepThree__checkbox {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+/* Hide the default checkbox */
+.preventivoStepThree__checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create custom checkbox container */
+.preventivoStepThree__checkbox label {
+  position: relative;
+  padding-left: 35px;
+  cursor: pointer;
+}
+
+/* Custom checkbox box */
+.preventivoStepThree__checkbox label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  background-color: white;
+  transition: all var(--animation-duration) ease;
+}
+
+/* Custom SVG tick (using your boatto-arrow.svg) */
+.preventivoStepThree__checkbox label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  background-image: url("/svg/boatto-arrow.svg");
+  background-size: 80% 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity var(--animation-duration) ease;
+}
+
+/* Checked state */
+.preventivoStepThree__checkbox input[type="checkbox"]:checked + label::before {
+  background-color: white;
+  border-color: var(--color-red-boatto);
+}
+
+.preventivoStepThree__checkbox input[type="checkbox"]:checked + label::after {
+  opacity: 1;
+}
+
+.preventivoStepThree__checkbox:hover label::before {
+  border-color: var(--color-red-boatto);
+}

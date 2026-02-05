@@ -1,0 +1,94 @@
+---
+
+---
+
+<style>
+  .bg {
+    background: linear-gradient(to right, #871114, var(--color-red-boatto));
+  }
+
+  .bg > div {
+    text-align: center;
+  }
+
+  .bg > div > div > p:nth-child(1) {
+    font-size: clamp(1.2rem, 2vw, 2rem);
+  }
+  .bg > div > p:nth-child(2) {
+    font-size: clamp(0.8rem, 2vw, 1.2rem);
+  }
+
+  span {
+    font-size: clamp(1rem, 2vw, 1.5rem);
+  }
+  p {
+    line-height: normal;
+  }
+
+  .number {
+    font-family: var(--font-alexandria-b);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.125rem;
+    margin-bottom: 1rem;
+  }
+</style>
+
+<section class='bg flex justify-between px-4 lg:px-16 py-8 text-white'>
+  <div>
+    <div class='number'>
+      <p class='counter'>50</p>
+      <span>+</span>
+    </div>
+    <p>Anni sul territorio</p>
+  </div>
+
+  <div>
+    <div class='number'>
+      <p class='font-alexandria-b counter'>100</p>
+      <span>+</span>
+    </div>
+    <p>Clienti soddisfatti</p>
+  </div>
+
+  <div>
+    <div class='number'>
+      <p class='font-alexandria-b counter'>10000</p>
+      <span>+</span>
+    </div>
+    <p>Consegne totali</p>
+  </div>
+</section>
+
+<script>
+  import gsap from "gsap";
+  import ScrollTrigger from "gsap/ScrollTrigger";
+
+  // Register ScrollTrigger plugin
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Initialize
+  const counterElement = document.querySelectorAll(".counter");
+
+  // Create animation with ScrollTrigger
+  gsap.from(counterElement, {
+    textContent: 0,
+    duration: 4,
+    ease: "power1.in",
+    snap: { textContent: 1 },
+    stagger: {
+      each: 0.2,
+      onUpdate: function () {
+        const animation = this as any;
+        const target = animation.targets()[0] as HTMLElement;
+        const currentValue = Math.ceil(parseFloat(target.textContent || "0"));
+        target.innerHTML = numberWithCommas(currentValue);
+      },
+    },
+  });
+
+  function numberWithCommas(x: number): string {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
+</script>

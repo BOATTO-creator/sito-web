@@ -1,0 +1,22 @@
+---
+import boattoArrow from "../../../assets/logo/boatto-arrow.svg";
+
+interface Props {
+  colorTitle: string;
+  colorParagraph: string;
+  colorCard: string;
+  title: string;
+  paragraph: string;
+}
+const { colorTitle, colorParagraph, colorCard, title, paragraph } = Astro.props;
+---
+
+<div class='p-8' style=`background-color:#${colorCard}`>
+  <div class='flex flex-col md:flex-row gap-4'>
+    <img class='w-10 md:w-20' src={boattoArrow.src} alt='boatto-freccia' />
+    <h3 style=`color:#${colorTitle}`>
+      {title}
+    </h3>
+  </div>
+  <p class='text-justify mt-8' style=`color:#${colorParagraph}`>{paragraph}</p>
+</div>

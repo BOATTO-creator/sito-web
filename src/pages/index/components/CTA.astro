@@ -1,0 +1,38 @@
+---
+import Button from "../../../components/Button.astro";
+---
+
+<style>
+  .cta {
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 1) 10%,
+        rgba(255, 255, 255, 0.8)
+      ),
+      url("/svg/boatto-arrow.svg");
+    background-position: center;
+    background-size:
+      auto,
+      80px 80px; /* Auto è per il linear gradient */
+    background-repeat: repeat;
+
+    height: 20rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 4rem 0;
+    & > * {
+      text-align: center;
+    }
+  }
+</style>
+
+<section class='cta mx-4 lg:mx-16'>
+  <h2 class='font-alexandria-r'>Hai bisogno di una soluzione per te?</h2>
+  <p>Compila il form gratuito con le informazioni per un preventivo lampo</p>
+  <Button type='1' to='#preventivo'>Vai al preventivo</Button>
+</section>

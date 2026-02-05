@@ -1,7 +1,10 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 
+import react from "@astrojs/react";
+
 export default defineConfig({
-  site: "https://websiteURLexample.it", //edit website url
+  site: "https://boattoautotrasporti.it",
   vite: { plugins: [tailwindcss()] },
+  integrations: [react()],
 });

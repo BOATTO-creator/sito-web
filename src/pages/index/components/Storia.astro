@@ -1,0 +1,73 @@
+---
+import arrow from "../../../assets/logo/boatto-arrow.svg";
+---
+
+<style>
+  .dove-che-cosa {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+</style>
+
+<section class='margin mx-4 lg:mx-16 mt-32' id='storia'>
+  <div class='flex flex-col sm:flex-row gap-16'>
+    <!-- storia -->
+    <div>
+      <h2 class='font-alexandria-r'>Storia</h2>
+      <p>
+        La ditta "Boatto Autotrasporti S.r.l." nasce nei primi anni '70 come
+        ditta di autotrasporti c/terzi per volontà del Sig. Marcello, padre dei
+        due attuali proprietari Mario e Luciano, che grazie al forte impulso
+        iniziale portano l'azienda a crescere e a rimodernarsi con il passare
+        del tempo.
+        <br />
+        <br />
+        Nel 2009 viene fondata dai F.lli Boatto una nuova azienda in appoggio alla
+        prima denominata "B.L.M. Logistica Srl" al fine di dare maggiori garanzie
+        ai clienti abituali e ai nuovi interessati.
+      </p>
+    </div>
+
+    <div class='flex gap-8'>
+      <!-- arrows -->
+      <div class='sm:w-40 w-30 flex flex-col items-center justify-center'>
+        <img class='w-full' src={arrow.src} alt='arrow' />
+        <div class='h-15 sm:h-20 w-0.5 bg-black my-4'></div>
+        <img class='w-full' src={arrow.src} alt=' arrow' />
+      </div>
+
+      <!-- dove che cosa -->
+      <div class='flex flex-col gap-10'>
+        <!-- dove -->
+        <div class='dove-che-cosa'>
+          <p class='font-alexandria-r'>Dove</p>
+          <p>
+            Vantiamo come punto di forza l'esperienza pluriennale nei
+            rifornimenti navali e/o mercantili<span class='font-alexandria-m'>
+              da Genova/Milano
+            </span> per i porti commerciali di Venezia e di tutto il <span
+              class='font-alexandria-m'
+              >Friuli Venezia Giulia.
+            </span>
+          </p>
+        </div>
+        <!-- che cosa -->
+        <div class='dove-che-cosa'>
+          <p class='font-alexandria-r'>Che cosa</p>
+          <p>
+            Svolge attività di trasporto di merce direttamente con i propri
+            mezzi ed <span class='font-alexandria-m'
+              >è specializzata nel trattamento delle merci pericolose in A.D.R.</span
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <img
+    src='/img/boatto-azienda.jpg'
+    class='mx-auto mt-16'
+    alt='Boatto Azienda'
+  />
+</section>

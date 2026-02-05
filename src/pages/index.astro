@@ -1,9 +1,60 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Button from '../components/Button.astro';
+import Layout from "../layouts/Layout.astro";
+import BannerDati from "./index/components/BannerDati.astro";
+import Storia from "./index/components/Storia.astro";
+import CTA from "./index/components/CTA.astro";
+import Servizi from "./index/components/Servizi.astro";
+import Contatti from "./index/components/Contatti.astro";
+import Preventivo from "./index/components/Preventivo.tsx";
+import Header from "../layouts/components/Header.astro";
 ---
 
-<Layout metadescription="meta description for SEO, EDIT IT">
-	<h1>Homepage</h1>
-	<Button type="1">Button</Button>
+<style>
+  .hero {
+    background-image:
+      linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent 69%),
+      url("/img/camion-boatto.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    height: 100vh;
+  }
+  @media (width <= 40rem /* 640px sm */) {
+    .hero {
+      background-image:
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent 59%),
+        url("/img/camion-boatto.jpg");
+    }
+  }
+</style>
+
+<Layout
+  metadescription='Autotrasporti F.lli Boatto Srl. La direzione giusta per ogni viaggio.'
+>
+  <section class='hero'>
+    <Header />
+    <h1
+      class='max-w-[15ch] font-alexandria-b text-center sm:text-right text-white absolute top-1/6 left-4 sm:top-1/2 sm:left-auto sm:right-16'
+    >
+      La direzione giusta per ogni viaggio.
+    </h1>
+  </section>
+
+  <BannerDati />
+  <Storia />
+  <CTA />
+  <Servizi />
+  <Contatti />
+  <Preventivo client:idle />
 </Layout>
+
+<script>
+  import gsap from "gsap";
+
+  gsap.from(".hero h1", {
+    autoAlpha: 0,
+    y: 200,
+    duration: 1,
+    ease: "power1.out",
+  });
+</script>

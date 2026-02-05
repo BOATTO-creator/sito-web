@@ -1,0 +1,122 @@
+---
+import Button from "../../components/Button.astro";
+---
+
+<!-- Hamburger button idea taken by: https://codepen.io/RRoberts/pen/ZBYaJr -->
+<style>
+  .hamburger .line {
+    width: 40px;
+    height: 3px;
+    background-color: var(--color-black-boatto);
+    display: block;
+    margin: 6px auto;
+    transition: all 0.15s ease-in-out;
+    border-radius: 50px;
+  }
+
+  .hamburger:hover {
+    cursor: pointer;
+  }
+
+  #hamburger-5.is-active {
+    transform: rotate(90deg);
+  }
+
+  #hamburger-5.is-active .line:nth-child(2) {
+    transition: none;
+  }
+
+  #hamburger-5 .line:nth-child(2) {
+    transition-delay: 0s;
+  }
+
+  #hamburger-5.is-active .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  #hamburger-5.is-active .line:nth-child(1),
+  #hamburger-5.is-active .line:nth-child(3) {
+    width: 20px;
+    transform-origin: right;
+  }
+
+  #hamburger-5.is-active .line:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+  }
+
+  #hamburger-5.is-active .line:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+  }
+
+  /* Menu styles */
+  .mobile-menu {
+    transition: all 0.3s ease-in-out;
+  }
+</style>
+
+<!-- Hamburger button -->
+<div class='block sm:hidden relative'>
+  <div>
+    <button
+      class='hamburger'
+      id='hamburger-5'
+      type='button'
+      aria-label='Toggle navigation menu'
+      aria-expanded='false'
+      aria-controls='mobile-menu'
+    >
+      <span class='line'></span>
+      <span class='line'></span>
+      <span class='line'></span>
+    </button>
+  </div>
+
+  <!-- links  -->
+  <nav
+    id='mobile-menu'
+    class='font-alexandria-r flex-col gap-8 mobile-menu hidden absolute top-10 right-0 z-10 bg-white p-4 rounded-boatto'
+    aria-labelledby='hamburger-5'
+  >
+    <div>
+      <a href='#storia'>Storia</a>
+    </div>
+    <div>
+      <a href='#servizi'>Servizi</a>
+    </div>
+    <div>
+      <a href='#contatti'>Contatti</a>
+    </div>
+    <Button type='1' to='#preventivo' extraClass='block'>Preventivo</Button>
+  </nav>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const hamburger = document.getElementById("hamburger-5");
+    const mobileMenu = document.getElementById("mobile-menu");
+
+    if (hamburger && mobileMenu) {
+      hamburger.addEventListener("click", function () {
+        const isActive = this.classList.toggle("is-active");
+
+        // Update button ARIA
+        this.setAttribute("aria-expanded", isActive.toString());
+
+        // Toggle menu visibility
+        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("flex");
+      });
+
+      // Close menu when clicking on links
+      const menuLinks = mobileMenu.querySelectorAll("a, [data-close-menu]");
+      menuLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("is-active");
+          hamburger.setAttribute("aria-expanded", "false");
+          mobileMenu.classList.add("hidden");
+          mobileMenu.classList.remove("flex");
+        });
+      });
+    }
+  });
+</script>

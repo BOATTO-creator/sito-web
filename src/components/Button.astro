@@ -2,15 +2,24 @@
 export interface Props {
   type?: string;
   to?: string;
+  extraClass?: string;
 }
 
-const { type = "1", to = "#" } = Astro.props;
+const { type = "1", to = "#", extraClass = "" } = Astro.props;
 ---
+
+<style>
+  button {
+    transition-duration: var(--animation-duration);
+  }
+</style>
 
 {
   type == "1" ? (
     <a href={to}>
-      <button class='bg-black p-4 text-white'>
+      <button
+        class={`bg-dark-red-boatto px-4 py-2 text-white hover:bg-red-boatto ${extraClass}`}
+      >
         <slot />
       </button>
     </a>

@@ -1,15 +1,58 @@
 ---
 const d: Date = new Date();
 let year: number = d.getFullYear();
+import logo from "../../assets/logo/logo.svg";
 ---
-<footer>
-  <div class='flex justify-center gap-4 text-xs'>
-    <p>
-      Copyright {year} © All rights reserved. Made by <a href='#'
-        >Insert Coin</a
-      >.
-    </p>
-    <div><a href='#'>Privacy Policy</a></div>
-    <div><a href='#'>Cookies Settings</a></div>
+
+<style>
+  .link {
+    font-family: var(--font-alexandria-r);
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+  }
+</style>
+
+<footer class='mx-4 lg:mx-16 mt-32'>
+  <div class='flex flex-col-reverse sm:flex-row gap-8 justify-between mb-16'>
+    <div class='flex flex-col gap-4'>
+      <div class='w-32 sm:w-44'>
+        <img class='w-full h-full' src={logo.src} alt='Logo Boatto' />
+      </div>
+      <div>
+        <h3>Indirizzo</h3>
+        <a
+          href='https://www.google.com/maps/place/Boatto+Autotrasporti+S.R.L./@45.4993732,12.1516204,17z/data=!3m1!4b1!4m6!3m5!1s0x477eca14374405ab:0xe261363d0fe672c3!8m2!3d45.4993732!4d12.1516204!16s%2Fg%2F1tghnfmx?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoKLDEwMDc5MjA2N0gBUAM%3D'
+          target='_blank'>Via F. Petrarca 9 <br /> 30038 Spinea (VE)</a
+        >
+      </div>
+      <div>
+        <h3>Contatti</h3>
+        <a href='tel:+39041992100'>041992100</a>
+        <br />
+        <a href='mailto:info@boattoautotrasporti.com'
+          >info@boattoautotrasporti.com</a
+        >
+        <p>Boatto Autotrasporti S.r.l.</p>
+        <p>P.IVA 03588220271</p>
+      </div>
+    </div>
+
+    <nav class='text-left sm:text-right'>
+      <div><a class='link' href='#storia'>Storia</a></div>
+      <div><a class='link' href='#servizi'>Servizi</a></div>
+      <div><a class='link' href='#contatti'>Contatti</a></div>
+      <div><a class='link' href='#preventivo'>Richiedi un preventivo</a></div>
+    </nav>
+  </div>
+
+  <div
+    class='flex justify-between gap-4 text-xs font-alexandria-el border-black-boatto border-t pt-8 mb-16'
+  >
+    <span>
+      Copyright {year} © All rights reserved.
+    </span>
+    <div class='flex gap-4'>
+      <div><a href='#'>Privacy Policy</a></div>
+      <div><a href='#'>Cookies Settings</a></div>
+    </div>
   </div>
 </footer>

@@ -1,0 +1,18 @@
+---
+interface Props {
+  img: string;
+  title: string;
+  paragraph: string;
+}
+const { img, title, paragraph } = Astro.props;
+---
+
+<div
+  class='bg-light-gray-boatto w-96 p-8 flex flex-col items-center justify-center gap-4'
+>
+  <div class='rounded-boatto bg-white inline-block px-8 py-4'>
+    <img class='scale-x-[-1] h-14' src=`/svg/${img}.svg` alt={title} />
+  </div>
+  <h3>{title}</h3>
+  <p class='text-center'>{paragraph}</p>
+</div>
