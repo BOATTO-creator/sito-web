@@ -45,6 +45,9 @@ import Header from "../layouts/components/Header.astro";
   <CTA />
   <Servizi />
   <Contatti />
+  <form name='form-preventivo' method='POST' data-netlify='true'>
+    <input type='hidden' name='form-name' value='form-preventivo' />
+  </form>
   <Preventivo client:idle />
 </Layout>
 

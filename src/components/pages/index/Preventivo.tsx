@@ -28,6 +28,19 @@ export default function Preventivo() {
     setStep((prev) => prev - 1);
   }
 
+  //invia il form con mail tramite netlify
+  const handleSubmit = async () => {
+  const form = formRef.current;
+  if (!form) return; // TS is now happy
+  const formData = new FormData(form);
+
+  await fetch("/", {
+    method: "POST",
+    body: formData,
+  }).then(() => console.log("Form successfully submitted"))
+    .catch(error => alert(error));
+};
+
   // formdata
   const [formData, setFormData] = useState({
     stepOne: {
@@ -95,6 +108,7 @@ export default function Preventivo() {
         </div>
         <form
           data-netlify="true"
+          onSubmit={handleSubmit}
           name='form-preventivo'
           encType='application/x-www-form-urlencoded'
           method='post'
@@ -104,6 +118,7 @@ export default function Preventivo() {
             "flex flex-col pb-16 w-full"
           )}
         >
+          <input type="hidden" name="form-name" value="form-preventivo" />
           {step === 1 && (
             <PreventivoStepOne
               formDataStepOne={formData.stepOne}

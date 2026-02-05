@@ -10,6 +10,8 @@ export default function PreventivoStepThree({
   formDataStepTwo: StepTwoType;
   handlePreviouStep: () => void;
 }) {
+
+
   return (
     <div className={styles.preventivo__formThird}>
       <div className={styles.preventivo__doubleLine}>
