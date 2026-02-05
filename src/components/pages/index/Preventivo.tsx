@@ -37,8 +37,6 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     if (!formData) return; // TS is now happy
 const body = new URLSearchParams(formData as any).toString();
 
-  
-
   await fetch("/", {
     method: "POST",
       headers: {

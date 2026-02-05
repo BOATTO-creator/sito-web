@@ -45,11 +45,27 @@ import Header from "../layouts/components/Header.astro";
   <CTA />
   <Servizi />
   <Contatti />
-  <form name='form-preventivo' method='POST' data-netlify='true'>
-    <input type='hidden' name='form-name' value='form-preventivo' />
+  <form name='form-preventivo' method='POST' data-netlify='true' hidden>
+    <!-- <input type='hidden' name='form-name' value='form-preventivo' /> -->
+    <input type='text' name='nome' />
+    <input type='text' name='cognome' />
+    <input type='text' name='azienda' />
+    <input type='text' name='piva' />
+    <input type='email' name='email' />
+    <input type='tel' name='telefono' />
+    <input type='text' name='indirizzoDiCarico' />
+    <input type='text' name='indirizzoDiScarico' />
+    <input type='text' name='tipologiaCarico' />
+    <input type='text' name='dataProntezzaMerce' />
+    <input type='text' name='larghezza' />
+    <input type='text' name='altezza' />
+    <input type='text' name='peso' />
+    <input type='text' name='numeroPezzi' />
+    <textarea name='infoAggiuntive'></textarea>
+    <input type='checkbox' name='datiPersonali' />
   </form>
-  <Preventivo client:idle />
 </Layout>
+<Preventivo client:idle />
 
 <script>
   import gsap from "gsap";
