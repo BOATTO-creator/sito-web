@@ -29,14 +29,22 @@ export default function Preventivo() {
   }
 
   //invia il form con mail tramite netlify
-  const handleSubmit = async () => {
+const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
   const form = formRef.current;
   if (!form) return; // TS is now happy
   const formData = new FormData(form);
+    if (!formData) return; // TS is now happy
+const body = new URLSearchParams(formData as any).toString();
+
+  
 
   await fetch("/", {
     method: "POST",
-    body: formData,
+      headers: {
+    "Content-Type": "application/x-www-form-urlencoded",
+  },
+    body,
   }).then(() => console.log("Form successfully submitted"))
     .catch(error => alert(error));
 };
@@ -107,7 +115,6 @@ export default function Preventivo() {
           />
         </div>
         <form
-          data-netlify="true"
           onSubmit={handleSubmit}
           name='form-preventivo'
           encType='application/x-www-form-urlencoded'
