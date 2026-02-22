@@ -11,7 +11,7 @@ import arrow from "../../../assets/logo/boatto-arrow.svg";
 </style>
 
 <section class='margin mx-4 lg:mx-16 mt-32' id='storia'>
-  <div class='flex flex-col sm:flex-row gap-16'>
+  <div class='flex flex-col lg:flex-row gap-16'>
     <!-- storia -->
     <div>
       <h2 class='font-alexandria-r'>Storia</h2>
@@ -29,42 +29,48 @@ import arrow from "../../../assets/logo/boatto-arrow.svg";
       </p>
     </div>
 
-    <div class='flex gap-8'>
-      <!-- arrows -->
-      <div class='sm:w-40 w-30 flex flex-col items-center justify-center'>
-        <img class='w-full' src={arrow.src} alt='arrow' />
-        <div class='h-15 sm:h-20 w-0.5 bg-black my-4'></div>
-        <img class='w-full' src={arrow.src} alt=' arrow' />
+    <div class='grid grid-cols-[auto_auto] grid-rows-[auto_auto_auto] gap-4'>
+      <img
+        class='self-center sm:w-20 w-15 col-start-1 col-end-1 row-start-1 row-end-1'
+        src={arrow.src}
+        alt='arrow'
+      />
+      <div
+        class='h-10 sm:h-20 w-px ml-auto mr-auto bg-black my-4 col-start-1 col-end-1 row-start-2 row-end-2'
+      >
       </div>
+      <img
+        class='self-center sm:w-20 w-15 col-start-1 col-end-1 row-start-3 row-end-3'
+        src={arrow.src}
+        alt=' arrow'
+      />
 
-      <!-- dove che cosa -->
-      <div class='flex flex-col gap-10'>
-        <!-- dove -->
-        <div class='dove-che-cosa'>
-          <p class='font-alexandria-r'>Dove</p>
-          <p>
-            Vantiamo come punto di forza l'esperienza pluriennale nei
-            rifornimenti navali e/o mercantili<span class='font-alexandria-m'>
-              da Genova/Milano
-            </span> per i porti commerciali di Venezia e di tutto il <span
-              class='font-alexandria-m'
-              >Friuli Venezia Giulia.
-            </span>
-          </p>
-        </div>
-        <!-- che cosa -->
-        <div class='dove-che-cosa'>
-          <p class='font-alexandria-r'>Che cosa</p>
-          <p>
-            Svolge attività di trasporto di merce direttamente con i propri
-            mezzi ed <span class='font-alexandria-m'
-              >è specializzata nel trattamento delle merci pericolose in A.D.R.</span
-            >
-          </p>
-        </div>
+      <!-- dove -->
+      <div class='dove-che-cosa col-start-2 col-end-2 row-start-1 row-end-1'>
+        <p class='font-alexandria-r'>Dove</p>
+        <p>
+          Vantiamo come punto di forza l'esperienza pluriennale nei rifornimenti
+          navali e/o mercantili<span class='font-alexandria-m'>
+            da Genova/Milano
+          </span> per i porti commerciali di Venezia e di tutto il <span
+            class='font-alexandria-m'
+            >Friuli Venezia Giulia.
+          </span>
+        </p>
+      </div>
+      <!-- che cosa -->
+      <div class='dove-che-cosa col-start-2 col-end-2 row-start-3 row-end-3'>
+        <p class='font-alexandria-r'>Che cosa</p>
+        <p>
+          Svolge attività di trasporto di merce direttamente con i propri mezzi
+          ed <span class='font-alexandria-m'
+            >è specializzata nel trattamento delle merci pericolose in A.D.R.</span
+          >
+        </p>
       </div>
     </div>
   </div>
+
   <img
     src='/img/boatto-azienda.jpg'
     class='mx-auto mt-16'

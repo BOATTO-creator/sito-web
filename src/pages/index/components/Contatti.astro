@@ -3,29 +3,64 @@
 ---
 
 <style>
-  #contatti div div div h3 {
+  .contatti-sede {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: var(--radius-boatto);
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .contatti-sede:hover {
+    border: 1px solid var(--color-light-gray-boatto);
+  }
+  .contatti-sede h3 {
     margin-bottom: 0.5rem;
   }
-  #contatti div div div {
-    margin-bottom: 1rem;
+  .contatti-maps iframe {
+    max-width: 60rem;
+    max-height: 30rem;
+  }
+
+  @media screen and (max-width: 48rem) {
+    .contatti-maps iframe {
+      width: 100%;
+    }
+  }
+  .is-hidden {
+    display: none;
+  }
+  .is-active {
+    background-color: var(--color-light-gray-boatto);
   }
 </style>
 
 <section id='contatti' class='mx-4 lg:mx-16 mt-32'>
   <h2 class='font-alexandria-r mb-4'>Dove trovarci</h2>
-  <div class='flex justify-between flex-col-reverse sm:flex-row'>
+  <div class='flex justify-between gap-4 flex-col-reverse md:flex-row'>
     <div>
-      <div>
+      <div class='contatti-sede contatti-sede--amministrativa is-active'>
         <h3>Sede legale e ammisitrativa</h3>
-        <p>Via F. Petrarca 9</p>
-        <p>30038 Spinea (VE)</p>
+        <a
+          href='https://www.google.com/maps/place/Via+Petrarca,+9a,+30038+Spinea+VE'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Via F. Petrarca 9 <br />
+          30038 Spinea (VE)
+        </a>
         <p>P.IVA 03588220271</p>
         <p>Boatto Autotrasporti S.r.l.</p>
       </div>
-      <div>
+      <div class='contatti-sede contatti-sede--magazzino'>
         <h3>Magazzino</h3>
-        <p>Via F. Petrarca 9</p>
-        <p>30038 Spinea (VE)</p>
+        <a
+          href='https://www.google.com/maps/place/Via+Petrarca,+9a,+30038+Spinea+VE'
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Via F. Petrarca 9 <br />
+          30038 Spinea (VE)
+        </a>
         <p>P.IVA 03588220271</p>
         <p>Boatto Autotrasporti S.r.l.</p>
       </div>
@@ -40,12 +75,59 @@
       </div>
     </div>
     <!-- google maps -->
-    <div>
-      <img
-        class='mb-4'
-        src='https://upload.wikimedia.org/wikipedia/en/5/56/Google_maps_screenshot.png'
-        alt=''
-      />
+    <div data-map-type='amministrativa' class='contatti-maps mb-4'>
+      <iframe
+        src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.5303146975557!2d12.1517621!3d45.4994022!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eca14487acf3b%3A0x2b245a22ac0a0e5!2sVia%20Petrarca%2C%209a%2C%2030038%20Spinea%20VE!5e0!3m2!1sen!2sit!4v1771777536542!5m2!1sen!2sit'
+        width='600'
+        height='450'
+        style='border:0;'
+        allowfullscreen=''
+        loading='lazy'
+        referrerpolicy='no-referrer-when-downgrade'></iframe>
+    </div>
+
+    <div data-map-type='magazzino' class='contatti-maps mb-4 is-hidden'>
+      <iframe
+        src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.4907240259445!2d12.148382516641231!3d45.50019931652317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x477eca157b616dfb%3A0xcbe76186f8202267!2zR3JlZW4gYXJlYSBvZiDigIvigItWaWEgTHVuZW8!5e0!3m2!1sen!2sit!4v1771778534543!5m2!1sen!2sit'
+        width='600'
+        height='450'
+        style='border:0;'
+        allowfullscreen=''
+        loading='lazy'
+        referrerpolicy='no-referrer-when-downgrade'></iframe>
     </div>
   </div>
 </section>
+
+<script>
+  const contattiCards = document.querySelectorAll(".contatti-sede");
+  const maps = document.querySelectorAll(".contatti-maps");
+
+  contattiCards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+      // Remove active class from all cards
+      contattiCards.forEach((el) => {
+        el.classList.remove("is-active");
+      });
+
+      // Add active class to clicked card
+      card.classList.add("is-active");
+
+      // Hide all maps
+      maps.forEach((map) => {
+        map.classList.add("is-hidden");
+      });
+
+      // Show the map with the same index
+      if (maps[index]) {
+        maps[index].classList.remove("is-hidden");
+      }
+    });
+  });
+
+  // Show first map by default
+  if (maps.length > 0) {
+    maps.forEach((map) => map.classList.add("is-hidden"));
+    maps[0].classList.remove("is-hidden");
+  }
+</script>

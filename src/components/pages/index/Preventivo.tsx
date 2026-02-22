@@ -29,23 +29,24 @@ export default function Preventivo() {
   }
 
   //invia il form con mail tramite netlify
-const handleSubmit = async () => {
-  // e.preventDefault();
-  const form = formRef.current;
-  if (!form) return; // TS is now happy
-  const formData = new FormData(form);
-    if (!formData) return; // TS is now happy
-const body = new URLSearchParams(formData as any).toString();
+  const handleSubmit = async () => {
+    // e.preventDefault();
+    const form = formRef.current;
+    if (!form) return;
+    const formData = new FormData(form);
+    if (!formData) return;
+    const body = new URLSearchParams(formData as any).toString();
 
-  await fetch("/", {
-    method: "POST",
+    await fetch("/", {
+      method: "POST",
       headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
-  },
-    body,
-  }).then(() => console.log("Form sent",body))
-    .catch(error => alert(error));
-};
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body,
+    })
+      .then(() => console.log("Form sent", body))
+      .catch((error) => alert(error));
+  };
 
   // formdata
   const [formData, setFormData] = useState({
@@ -92,14 +93,14 @@ const body = new URLSearchParams(formData as any).toString();
     gsap.fromTo(
       formRef.current,
       { autoAlpha: 0, y: 20 },
-      { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" }
+      { autoAlpha: 1, y: 0, duration: 0.3, ease: "power2.out" },
     );
   }, [step]);
 
   return (
     <section
       id='preventivo'
-      className='mx-4 lg:mx-16 mt-32 lg:mt-16 flex lg:flex-row flex-col'
+      className='mx-4 lg:mx-16 mt-32 lg:mt-16 flex lg:flex-row flex-col rounded-boatto'
     >
       <PreventivoStato step={step} />
 
@@ -120,10 +121,10 @@ const body = new URLSearchParams(formData as any).toString();
           ref={formRef}
           className={clsx(
             styles.preventivo__form,
-            "flex flex-col pb-16 w-full"
+            "flex flex-col pb-16 w-full",
           )}
         >
-          <input type="hidden" name="form-name" value="form-preventivo" />
+          <input type='hidden' name='form-name' value='form-preventivo' />
           {step === 1 && (
             <PreventivoStepOne
               formDataStepOne={formData.stepOne}
