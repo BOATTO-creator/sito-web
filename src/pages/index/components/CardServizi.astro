@@ -18,5 +18,9 @@ const { colorTitle, colorParagraph, colorCard, title, paragraph } = Astro.props;
       {title}
     </h3>
   </div>
-  <p class='text-justify mt-8' style=`color:#${colorParagraph}`>{paragraph}</p>
+  <div
+    class='text-justify mt-8'
+    style=`color:#${colorParagraph}`
+    set:html={paragraph}
+  />
 </div>
