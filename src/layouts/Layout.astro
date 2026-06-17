@@ -3,12 +3,11 @@ import Favicon from "./components/Favicon.astro";
 import MetadataSEO from "./components/MetadataSEO.astro";
 import Footer from "./components/Footer.astro";
 
-import type { MetadescriptionType } from "../types/types";
-
 interface Props {
-  metadescription: MetadescriptionType;
+  metadescription: string;
+  title: string;
 }
-const { metadescription } = Astro.props;
+const { metadescription, title } = Astro.props;
 
 //Import CSS
 import "../assets/css/main.css";
@@ -18,8 +17,7 @@ import "../assets/css/main.css";
 <html lang='it'>
   <head>
     <Favicon />
-    <MetadataSEO metadescription={metadescription} />
-    <title>Boatto Autotrasporti Srl</title>
+    <MetadataSEO title={title} metadescription={metadescription} />
   </head>
   <body>
     <slot />

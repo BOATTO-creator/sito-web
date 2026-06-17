@@ -1,5 +1,3 @@
-export type MetadescriptionType = string;
-
 export interface StepOneType {
   nome: string;
   cognome: string;

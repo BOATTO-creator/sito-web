@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
-import type { StepTwoType } from "../../../types/types";
-import styles from "../../../assets/css/modules/preventivo.module.css";
+import type { StepTwoType } from "../../../../types/types";
+import styles from "../../../../assets/css/modules/preventivo.module.css";
 
 export default function PreventivoStepTwo({
   formDataStepTwo,
@@ -10,7 +10,7 @@ export default function PreventivoStepTwo({
 }: {
   formDataStepTwo: StepTwoType;
   handleChange: (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
   handleNextStep: () => void;
   handlePreviouStep: () => void;

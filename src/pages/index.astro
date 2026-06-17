@@ -1,11 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import BannerDati from "./index/components/BannerDati.astro";
-import Storia from "./index/components/Storia.astro";
-import CTA from "./index/components/CTA.astro";
-import Servizi from "./index/components/Servizi.astro";
-import Contatti from "./index/components/Contatti.astro";
-import Preventivo from "../components/pages/index/Preventivo.tsx";
+import BannerDati from "../components/pages/index/BannerDati.astro";
+import Storia from "../components/pages/index/Storia.astro";
+import CTA from "../components/pages/index/CTA.astro";
+import Servizi from "../components/pages/index/Servizi.astro";
+import Contatti from "../components/pages/index/Contatti.astro";
+import Preventivo from "../components/pages/index/preventivo/Preventivo.tsx";
 import Header from "../layouts/components/Header.astro";
 ---
 
@@ -13,7 +13,10 @@ import Header from "../layouts/components/Header.astro";
   .hero {
     background-image:
       linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent 69%),
-      url("/img/camion-boatto.jpg");
+      url("/img/bruh.png");
+    /* background-image:
+      linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent 69%),
+      url("/img/camion-boatto.jpg"); */
     background-position: center;
     background-size: cover;
     position: relative;
@@ -29,7 +32,8 @@ import Header from "../layouts/components/Header.astro";
 </style>
 
 <Layout
-  metadescription='Autotrasporti F.lli Boatto Srl. La direzione giusta per ogni viaggio.'
+  metadescription='Boatto Autotrasporti offre servizi di trasporto ADR, FRC/FNA e logistica a Spinea (VE). La direzione giusta per ogni viaggio.'
+  title='Boatto Autotrasporti | Trasporti ADR e Logistica a Spinea'
 >
   <section class='hero'>
     <Header />
@@ -45,6 +49,8 @@ import Header from "../layouts/components/Header.astro";
   <CTA />
   <Servizi />
   <Contatti />
+  <!-- Netlify elaborates form data only coming from a HTML form. React doesn't send anything.
+  To fix this I had to create a invisible form that gets the data from React and this actually sends it. -->
   <form name='form-preventivo' method='POST' data-netlify='true' hidden>
     <!-- <input type='hidden' name='form-name' value='form-preventivo' /> -->
     <input type='text' name='nome' />

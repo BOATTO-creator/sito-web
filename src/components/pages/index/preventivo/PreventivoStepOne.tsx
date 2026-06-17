@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
-import type { StepOneType } from "../../../types/types";
-import styles from "../../../assets/css/modules/preventivo.module.css";
+import type { StepOneType } from "../../../../types/types";
+import styles from "../../../../assets/css/modules/preventivo.module.css";
 import clsx from "clsx";
 
 export default function PreventivoStepOne({
@@ -10,7 +10,7 @@ export default function PreventivoStepOne({
 }: {
   formDataStepOne: StepOneType;
   handleChange: (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => void;
   handleNextStep: () => void;
 }) {

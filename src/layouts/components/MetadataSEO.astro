@@ -1,13 +1,89 @@
 ---
-import type { MetadescriptionType } from "../../types/types";
 interface Props {
-  metadescription: MetadescriptionType;
+  metadescription: string;
+  title: string; // Required - must be dynamic per page
+  ogImage?: string;
+  ogType?: string;
+  twitterCard?: string;
+  siteName?: string;
+  twitterHandle?: string;
+  canonicalURL?: string | URL; // Override if needed
+  robots?: string; // Default: "index, follow"
+  publishedTime?: string; // For articles
+  modifiedTime?: string; // For articles
+  author?: string; // For articles
 }
-const { metadescription } = Astro.props;
+
+const {
+  metadescription,
+  title,
+  ogImage = "/favicon/web-app-manifest-512x512.png",
+  ogType = "WebPage",
+  siteName = "Boatto Autotrasporti Srl",
+  canonicalURL = Astro.url,
+  // robots = "index, follow",
+} = Astro.props;
+
+const absoluteOGImage = new URL(ogImage, canonicalURL).href;
+const currentURL = new URL(canonicalURL);
 ---
 
+<title>{title}</title>
+
+<!-- ═══════════════════════════════════════ --><!-- BASIC META TAGS                       --><!-- ═══════════════════════════════════════ -->
 <meta charset='UTF-8' />
-<meta name='viewport' content='width=device-width' />
+<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 <meta name='generator' content={Astro.generator} />
-<meta name='keywords' content='keyword1, keyword2' />
-<meta name="description" content={metadescription} />
+<meta name='description' content={metadescription} />
+<!-- <meta name='robots' content={robots} /> -->
+
+<!-- ═══════════════════════════════════════ -->
+<!-- CANONICAL & ALTERNATE                 -->
+<!-- ═══════════════════════════════════════ -->
+<link rel='canonical' href={currentURL.href} />
+
+<!-- ═══════════════════════════════════════ -->
+<!-- OPEN GRAPH PROTOCOL (Facebook, LinkedIn) -->
+<!-- ═══════════════════════════════════════ -->
+<meta property='og:title' content={title} />
+<meta property='og:description' content={metadescription} />
+<meta property='og:type' content={ogType} />
+<meta property='og:url' content={currentURL.href} />
+<meta property='og:image' content={absoluteOGImage} />
+<meta property='og:site_name' content={siteName} />
+<meta property='og:locale' content='it_IT' />
+
+<!-- ═══════════════════════════════════════ -->
+<!-- TWITTER CARD PROTOCOL                 -->
+<!-- ═══════════════════════════════════════ -->
+<!-- <meta name='twitter:card' content={twitterCard} />
+<meta name='twitter:title' content={title} />
+<meta name='twitter:description' content={metadescription} />
+<meta name='twitter:image' content={absoluteOGImage} />
+<meta name='twitter:site' content={twitterHandle} />
+<meta name='twitter:creator' content={twitterHandle} /> -->
+
+<!-- ═══════════════════════════════════════ -->
+<!-- JSON-LD STRUCTURED DATA               -->
+<!-- ═══════════════════════════════════════ -->
+<script
+  type='application/ld+json'
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: title,
+    description: metadescription,
+    url: currentURL.href,
+    image: absoluteOGImage,
+    telephone: "041 992100",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Via F. Petrarca 9",
+      postalCode: "30038",
+      addressLocality: "Spinea",
+      addressRegion: "VE",
+      addressCountry: "IT",
+    },
+    hasMap: "https://maps.app.goo.gl/XJ5Pbiw6dNQB4Yc27",
+  })}
+/>

@@ -2,7 +2,7 @@ import clsx from "clsx";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
-import logoArrow from "../../../assets/logo/boatto-arrow.svg";
+import logoArrow from "../../../../assets/logo/boatto-arrow.svg";
 import { useRef, useState, type ChangeEvent } from "react";
 
 import PreventivoStepOne from "./PreventivoStepOne";
@@ -10,7 +10,7 @@ import PreventivoStepTwo from "./PreventivoStepTwo";
 import PreventivoStepThree from "./PreventivoStepThree";
 import PreventivoStato from "./PreventivoStato";
 
-import styles from "../../../assets/css/modules/preventivo.module.css";
+import styles from "../../../../assets/css/modules/preventivo.module.css";
 
 export default function Preventivo() {
   const formRef = useRef<HTMLFormElement>(null);
