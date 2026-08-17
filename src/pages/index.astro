@@ -12,19 +12,19 @@ import Header from "../layouts/components/Header.astro";
 <style>
   .hero {
     background-image:
-      linear-gradient(to left, rgba(0, 0, 0, 0.5), transparent 60%),
+      linear-gradient(to left, rgba(0, 0, 0, 0.3), transparent 60%),
       url("/img/boatto-payoff-truck-desktop.jpg");
     background-position: center;
     background-size: cover;
     position: relative;
-    height: 100vh;
+    height: 100dvh;
   }
   @media (width <= 40rem /* 640px sm */) {
     .hero {
       background-image:
         linear-gradient(
           to bottom,
-          rgba(255, 255, 255, 0.4),
+          rgba(255, 255, 255, 0.5),
           rgba(0, 0, 0, 0.1) 59%
         ),
         url("/img/boatto-payoff-truck-mobile.jpg");
@@ -39,7 +39,7 @@ import Header from "../layouts/components/Header.astro";
   <section class='hero'>
     <Header />
     <h1
-      class='max-w-[15ch] font-alexandria-b text-left bottom-[7%] md:left-14 text-white absolute mx-4'
+      class='max-w-[15ch] font-alexandria-b text-left bottom-[10%] md:left-14 text-white absolute mx-4'
     >
       La direzione giusta per ogni viaggio.
     </h1>

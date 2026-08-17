@@ -100,7 +100,7 @@ export default function Preventivo() {
   return (
     <section
       id='preventivo'
-      className='mx-4 lg:mx-16 mt-32 lg:mt-16 flex lg:flex-row flex-col rounded-boatto'
+      className='mx-4 lg:mx-16 mt-16 md:mt-32 flex lg:flex-row flex-col rounded-boatto'
     >
       <PreventivoStato step={step} />
 
