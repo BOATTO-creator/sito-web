@@ -20,6 +20,14 @@ import arrow from "../../../assets/logo/boatto-arrow.svg";
     width: 100%;
     object-fit: cover;
   }
+
+  .swiper-slide {
+    opacity: 0 !important;
+    transition: opacity 0.8s ease-in-out !important;
+  }
+  .swiper-slide-active {
+    opacity: 1 !important;
+  }
 </style>
 
 <section class='margin mx-4 lg:mx-16 mt-16 md:mt-32' id='storia'>
@@ -98,17 +106,22 @@ import arrow from "../../../assets/logo/boatto-arrow.svg";
     <div class='swiper-wrapper'>
       <!-- img 2-->
       <div class='swiper-slide'>
-        <img src='img/boatto-2.png' alt='Slide 2' loading='lazy' />
+        <img src='img/boatto-2.jpeg' alt='Slide 2' loading='lazy' />
         <div class='swiper-lazy-preloader'></div>
       </div>
       <!-- img 3-->
       <div class='swiper-slide'>
-        <img src='img/boatto-3.png' alt='Slide 3' loading='lazy' />
+        <img src='img/boatto-3.jpeg' alt='Slide 3' loading='lazy' />
         <div class='swiper-lazy-preloader'></div>
       </div>
       <!-- img 6-->
       <div class='swiper-slide'>
-        <img src='img/boatto-6.png' alt='Slide 6' loading='lazy' />
+        <img src='img/boatto-6.jpeg' alt='Slide 6' loading='lazy' />
+        <div class='swiper-lazy-preloader'></div>
+      </div>
+      <!-- img 7-->
+      <div class='swiper-slide'>
+        <img src='img/boatto-7.jpeg' alt='Slide 7' loading='lazy' />
         <div class='swiper-lazy-preloader'></div>
       </div>
     </div>
@@ -118,17 +131,26 @@ import arrow from "../../../assets/logo/boatto-arrow.svg";
 <!-- Initialize Swiper -->
 <script>
   import Swiper from "swiper";
-  import { Autoplay } from "swiper/modules";
+  import { Autoplay, EffectFade, Keyboard } from "swiper/modules";
   import "swiper/css";
+  import "swiper/css/effect-fade";
 
   const swiper = new Swiper(".mySwiper", {
-    modules: [Autoplay],
+    modules: [Autoplay, EffectFade, Keyboard],
     direction: "horizontal",
     loop: true,
+    effect: "fade",
+    fadeEffect: {
+      crossFade: true,
+    },
+    keyboard: {
+      enabled: true,
+    },
+    // grabCursor: true,
     autoplay: {
       delay: 2500,
-      disableOnInteraction: false,
-      pauseOnMouseEnter: true,
+      // disableOnInteraction: false,
+      // pauseOnMouseEnter: true,
       reverseDirection: false,
     },
   });
