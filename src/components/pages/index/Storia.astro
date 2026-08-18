@@ -1,5 +1,6 @@
 ---
 import arrow from "../../../assets/logo/boatto-arrow.svg";
+// import "./_swiperCSS.css";
 ---
 
 <style>
@@ -7,6 +8,17 @@ import arrow from "../../../assets/logo/boatto-arrow.svg";
     display: flex;
     flex-direction: column;
     gap: 1rem;
+  }
+
+  .mySwiper {
+    margin-top: 4rem;
+    max-height: 80vh;
+  }
+
+  .mySwiper .swiper-slide img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
   }
 </style>
 
@@ -82,9 +94,46 @@ import arrow from "../../../assets/logo/boatto-arrow.svg";
     </div>
   </div>
 
-  <img
-    src='/img/boatto-azienda.jpg'
-    class='mx-auto mt-16'
-    alt='Boatto Azienda'
-  />
+  <div class='swiper mySwiper aspect-square sm:aspect-video'>
+    <div class='swiper-wrapper'>
+      <!-- img 2-->
+      <div class='swiper-slide'>
+        <img src='img/boatto-2.png' alt='Slide 2' loading='lazy' />
+        <div class='swiper-lazy-preloader'></div>
+      </div>
+      <!-- img 3-->
+      <div class='swiper-slide'>
+        <img src='img/boatto-3.png' alt='Slide 3' loading='lazy' />
+        <div class='swiper-lazy-preloader'></div>
+      </div>
+      <!-- img 6-->
+      <div class='swiper-slide'>
+        <img src='img/boatto-6.png' alt='Slide 6' loading='lazy' />
+        <div class='swiper-lazy-preloader'></div>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- Initialize Swiper -->
+<script>
+  import Swiper from "swiper";
+  import { Autoplay } from "swiper/modules";
+  import "swiper/css";
+
+  const swiper = new Swiper(".mySwiper", {
+    modules: [Autoplay],
+    direction: "horizontal",
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false,
+      pauseOnMouseEnter: true,
+      reverseDirection: false,
+    },
+  });
+
+  //-----------------------------------------------------------
+  // Create the direction indicator element
+  // swiperCustomArrows(".mySwiper2");
+</script>
